@@ -3,6 +3,20 @@
 import { useState } from "react";
 import { translations } from "./translations";
 
+// Premium gold geometric ornament to act as section dividers
+function GoldOrnament() {
+  return (
+    <div className="flex items-center justify-center gap-4 py-12">
+      <div className="h-[1px] w-16 sm:w-24 bg-gradient-to-r from-transparent to-brand-bronze/40" />
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-brand-bronze/80">
+        <path d="M12 2L15.5 8.5L22 12L15.5 15.5L12 22L8.5 15.5L2 12L8.5 8.5L12 2Z" stroke="currentColor" strokeWidth="1" strokeLinejoin="round" />
+        <circle cx="12" cy="12" r="2" fill="currentColor" />
+      </svg>
+      <div className="h-[1px] w-16 sm:w-24 bg-gradient-to-l from-transparent to-brand-bronze/40" />
+    </div>
+  );
+}
+
 export default function Home() {
   const [lang, setLang] = useState<"sv" | "en">("sv");
   const [activeCategory, setActiveCategory] = useState<"grill" | "meze" | "dessert">("grill");
@@ -12,20 +26,20 @@ export default function Home() {
 
   const t = translations[lang];
 
-  // Helper for category-specific menu items
+  // Dynamically translate tags based on state
   const menuItems = {
     grill: [
-      { id: "urfaKebab", translation: t.menu.dishes.urfaKebab, img: "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?auto=format&fit=crop&q=80&w=800", tag: "🔥 Mild" },
-      { id: "mixGrill", translation: t.menu.dishes.mixGrill, img: "/images/food_main.jpg", tag: "⭐ Signatur" },
-      { id: "beyti", translation: t.menu.dishes.beyti, img: "https://images.unsplash.com/photo-1590947132387-155cc02f3212?auto=format&fit=crop&q=80&w=800", tag: "🔥 Kockens Val" }
+      { id: "urfaKebab", translation: t.menu.dishes.urfaKebab, img: "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?auto=format&fit=crop&q=80&w=800", tag: t.menu.tags.mild },
+      { id: "mixGrill", translation: t.menu.dishes.mixGrill, img: "/images/food_main.jpg", tag: t.menu.tags.signature },
+      { id: "beyti", translation: t.menu.dishes.beyti, img: "https://images.unsplash.com/photo-1590947132387-155cc02f3212?auto=format&fit=crop&q=80&w=800", tag: t.menu.tags.chefChoice }
     ],
     meze: [
-      { id: "hummus", translation: t.menu.dishes.hummus, img: "https://images.unsplash.com/photo-1547058881-aa0edd92aab3?auto=format&fit=crop&q=80&w=800", tag: "Klassiker" },
-      { id: "mezePlatter", translation: t.menu.dishes.mezePlatter, img: "https://images.unsplash.com/photo-1541518763669-27fef04b14ea?auto=format&fit=crop&q=80&w=800", tag: "Perfekt att dela" }
+      { id: "hummus", translation: t.menu.dishes.hummus, img: "https://images.unsplash.com/photo-1547058881-aa0edd92aab3?auto=format&fit=crop&q=80&w=800", tag: t.menu.tags.classic },
+      { id: "mezePlatter", translation: t.menu.dishes.mezePlatter, img: "https://images.unsplash.com/photo-1541518763669-27fef04b14ea?auto=format&fit=crop&q=80&w=800", tag: t.menu.tags.share }
     ],
     dessert: [
-      { id: "baklava", translation: t.menu.dishes.baklava, img: "https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&q=80&w=800", tag: "Äkta Antep" },
-      { id: "kunefe", translation: t.menu.dishes.kunefe, img: "https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&q=80&w=800", tag: "Serveras varm" }
+      { id: "baklava", translation: t.menu.dishes.baklava, img: "https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&q=80&w=800", tag: t.menu.tags.antep },
+      { id: "kunefe", translation: t.menu.dishes.kunefe, img: "https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&q=80&w=800", tag: t.menu.tags.hot }
     ]
   };
 
@@ -235,8 +249,10 @@ export default function Home() {
         </div>
       </section>
 
+      <GoldOrnament />
+
       {/* STORY SECTION */}
-      <section id="story" className="py-20 md:py-32 px-4 sm:px-6 max-w-7xl mx-auto border-t border-brand-bronze/10">
+      <section id="story" className="py-12 md:py-20 px-4 sm:px-6 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           
           {/* Left: Premium Image Layout with Gold Accents */}
@@ -278,7 +294,7 @@ export default function Home() {
                 <span className="text-[9px] md:text-xs text-brand-meteor uppercase tracking-wider font-semibold leading-tight block">{t.story.stat2}</span>
               </div>
               <div>
-                <span className="block text-xl md:text-4xl font-grityle text-brand-bronze mb-1 md:mb-2">Anrik</span>
+                <span className="block text-xl md:text-4xl font-grityle text-brand-bronze mb-1 md:mb-2">{t.story.stat3Val}</span>
                 <span className="text-[9px] md:text-xs text-brand-meteor uppercase tracking-wider font-semibold leading-tight block">{t.story.stat3}</span>
               </div>
             </div>
@@ -286,11 +302,13 @@ export default function Home() {
         </div>
       </section>
 
+      <GoldOrnament />
+
       {/* MENU SECTION */}
-      <section id="menu" className="py-20 md:py-32 bg-brand-black-pearl/70 border-y border-brand-bronze/10">
+      <section id="menu" className="py-12 md:py-20 bg-brand-black-pearl/70">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           
-          <div className="text-center max-w-3xl mx-auto mb-12 md:mb-20">
+          <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
             <span className="text-brand-bronze font-bold text-[10px] md:text-xs tracking-[0.25em] uppercase block mb-3 md:mb-4">
               {t.menu.tag}
             </span>
@@ -357,8 +375,10 @@ export default function Home() {
         </div>
       </section>
 
+      <GoldOrnament />
+
       {/* BOOKING SECTION */}
-      <section id="booking" className="py-20 md:py-32 px-4 sm:px-6 max-w-4xl mx-auto">
+      <section id="booking" className="py-12 md:py-20 px-4 sm:px-6 max-w-4xl mx-auto">
         <div className="bg-brand-dark-green/20 border border-brand-bronze/25 rounded-sm p-6 sm:p-10 md:p-16 shadow-2xl relative overflow-hidden bg-brand-pattern">
           
           <div className="absolute top-0 right-0 w-32 md:w-48 h-32 md:h-48 bg-brand-bronze/5 rounded-full blur-[60px] md:blur-[80px] pointer-events-none" />
@@ -465,7 +485,7 @@ export default function Home() {
               className="h-16 md:h-20 w-auto mb-6" 
             />
             <p className="leading-relaxed mb-6 max-w-sm text-xs md:text-sm font-light">
-              Vi serverar det äkta turkiska köket med fokus på förstklassiga råvaror, kolgrillat kött och klassiska mezes. Välkommen till en oförglömlig kväll.
+              {t.footer.description}
             </p>
             <div className="flex gap-4">
               <a href="#" className="hover:text-brand-bronze transition-all text-[10px] md:text-xs font-semibold tracking-widest uppercase">Instagram</a>
@@ -475,7 +495,7 @@ export default function Home() {
           </div>
 
           {/* Col 2: Opening Hours */}
-          <div>
+          <div className="flex flex-col">
             <h4 className="text-white font-grityle text-base md:text-lg tracking-[0.1em] font-normal mb-6 uppercase">
               {t.footer.hoursTitle}
             </h4>
@@ -500,7 +520,7 @@ export default function Home() {
           </div>
 
           {/* Col 3: Contact */}
-          <div>
+          <div className="flex flex-col">
             <h4 className="text-white font-grityle text-base md:text-lg tracking-[0.1em] font-normal mb-6 uppercase">
               {t.footer.contactTitle}
             </h4>

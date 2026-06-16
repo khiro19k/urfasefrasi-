@@ -23,9 +23,19 @@ export const translations = {
       desc2: "Varje rätt tillagas från grunden med yttersta precision: från det rykande färska brödet som gräddas direkt i vår stenugn, till de delikata meze-rätterna och det fylliga turkiska teet som avrundar måltiden.",
       stat1: "100% färskt & halal",
       stat2: "30+ traditionella recept",
-      stat3: "Professionella kockar"
+      stat3: "Professionella kockar",
+      stat3Val: "Anrik"
     },
     menu: {
+      tags: {
+        mild: "🔥 Mild",
+        signature: "⭐ Signatur",
+        chefChoice: "🔥 Kockens Val",
+        classic: "Klassiker",
+        share: "Perfekt att dela",
+        antep: "Äkta Antep",
+        hot: "Serveras varm"
+      },
       tag: "KULINARISKA MÄSTERVERK",
       title: "Våra Signaturrätter",
       subtitle: "Ett handplockat urval av rätter som definierar vårt kök",
@@ -91,6 +101,7 @@ export const translations = {
       successMsg: "Tack! Vi har tagit emot din bokningsförfrågan och återkommer med en bekräftelse inom kort."
     },
     footer: {
+      description: "Vi serverar det äkta turkiska köket med fokus på förstklassiga råvaror, kolgrillat kött och klassiska mezes. Välkommen till en oförglömlig kväll.",
       hoursTitle: "Öppettider",
       hoursWeek: "Mån - Tors: 11:30 - 22:00",
       hoursFri: "Fredag: 11:30 - 23:00",
@@ -127,9 +138,19 @@ export const translations = {
       desc2: "Every dish is prepared from scratch with the utmost precision: from the steaming fresh bread baked directly in our stone oven, to the delicate meze dishes and the rich Turkish tea that completes the meal.",
       stat1: "100% fresh & halal",
       stat2: "30+ traditional recipes",
-      stat3: "Professional chefs"
+      stat3: "Professional chefs",
+      stat3Val: "Historic"
     },
     menu: {
+      tags: {
+        mild: "🔥 Mild",
+        signature: "⭐ Signature",
+        chefChoice: "🔥 Chef's Choice",
+        classic: "Classic",
+        share: "Perfect to Share",
+        antep: "Authentic Antep",
+        hot: "Served Warm"
+      },
       tag: "CULINARY MASTERPIECES",
       title: "Our Signature Dishes",
       subtitle: "A handpicked selection of dishes that define our kitchen",
@@ -195,6 +216,7 @@ export const translations = {
       successMsg: "Thank you! We have received your booking request and will confirm shortly."
     },
     footer: {
+      description: "We serve authentic Turkish cuisine focusing on premium ingredients, charcoal-grilled meats, and classic mezes. Welcome to an unforgettable evening.",
       hoursTitle: "Opening Hours",
       hoursWeek: "Mon - Thu: 11:30 - 22:00",
       hoursFri: "Friday: 11:30 - 23:00",
