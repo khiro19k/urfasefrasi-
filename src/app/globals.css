@@ -1,26 +1,172 @@
 @import "tailwindcss";
 
+/* Define local brand fonts */
+@font-face {
+  font-family: 'Grityle';
+  src: url('/fonts/Grityle-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Strong';
+  src: url('/fonts/Strong.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ArponaSans';
+  src: url('/fonts/ArponaSans/ArponaSans_Thin.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ArponaSans';
+  src: url('/fonts/ArponaSans/ArponaSans_ExtraLight.otf') format('opentype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ArponaSans';
+  src: url('/fonts/ArponaSans/ArponaSans_Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ArponaSans';
+  src: url('/fonts/ArponaSans/ArponaSans_Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ArponaSans';
+  src: url('/fonts/ArponaSans/ArponaSans_Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ArponaSans';
+  src: url('/fonts/ArponaSans/ArponaSans_SemiBold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ArponaSans';
+  src: url('/fonts/ArponaSans/ArponaSans_Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ArponaSans';
+  src: url('/fonts/ArponaSans/ArponaSans_ExtraBold.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ArponaSans';
+  src: url('/fonts/ArponaSans/ArponaSans_Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --color-brand-black-pearl: #001822;
+  --color-brand-bronze: #bd9656;
+  --color-brand-bronze-light: #e2c48d;
+  --color-brand-dark-green: #142921;
+  --color-brand-green-light: #a8d8b9;
+  --color-brand-meteor: #525e68;
+  --color-brand-lake-blue: #578dbd;
+  --color-brand-blue-bright: #24a3e6;
+  --color-brand-harvest-gold: #deb76f;
+  
+  --font-grityle: 'Grityle', serif;
+  --font-strong: 'Strong', serif;
+  --font-sans: 'ArponaSans', sans-serif;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #001822;
+  --foreground: #faf8f5;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+}
+
+/* Custom premium styles */
+.bg-brand-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cpath d='M40,25 C42,32 45,35 55,40 C45,45 42,48 40,55 C38,48 35,45 25,40 C35,35 38,32 40,25 Z' fill='%23bd9656' fill-opacity='0.12'/%3E%3Ccircle cx='40' cy='40' r='2' fill='%23bd9656' fill-opacity='0.12'/%3E%3Cpath d='M0,10 C5,7 7,5 10,0 C7,5 5,7 0,10' fill='%23bd9656' fill-opacity='0.12'/%3E%3Cpath d='M80,10 C75,7 73,5 70,0 C73,5 75,7 80,10' fill='%23bd9656' fill-opacity='0.12'/%3E%3Cpath d='M0,70 C5,73 7,75 10,80 C7,75 5,73 0,70' fill='%23bd9656' fill-opacity='0.12'/%3E%3Cpath d='M80,70 C75,73 73,75 70,80 C73,75 75,73 80,70' fill='%23bd9656' fill-opacity='0.12'/%3E%3C/svg%3E");
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #e2c48d 0%, #bd9656 50%, #deb76f 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.border-gold-gradient {
+  border-image: linear-gradient(to right, #bd9656, #e2c48d, #bd9656) 1;
+}
+
+/* Custom premium animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes drawBorder {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in-up-delay-1 {
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+  opacity: 0;
+}
+
+.animate-fade-in-up-delay-2 {
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+  opacity: 0;
 }
